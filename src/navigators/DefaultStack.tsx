@@ -1,27 +1,30 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Explore from "../screens/Explore";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigatorScreenParams } from "@react-navigation/native";
 import Profile from "../screens/Profile";
-import Restaurant from "../screens/Restaurant";
-import Restaurants from "../screens/Restaurants";
+import ExploreStackScreen, { ExploreScreenProps } from "./ExploreStack";
+import RestaurantScreenStack, { RestaurantsStackParams } from "./RestaurantStack";
 
 export type DefaultStackParams = {
-  Explore: undefined;
+  ExploreStack: NavigatorScreenParams<ExploreScreenProps>;
   Profile: undefined;
-  Restaurants: undefined;
-  Restaurant: {
-    name: string;
-  };
+  RestaurantsStack: NavigatorScreenParams<RestaurantsStackParams>;
 };
 
-const Stack = createNativeStackNavigator<DefaultStackParams>();
+const Stack = createBottomTabNavigator<DefaultStackParams>();
 
 const DefaultStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Explore">
-      <Stack.Screen name="Explore" component={Explore} />
+    <Stack.Navigator
+      initialRouteName="ExploreStack"
+      screenOptions={{ headerShown: false }}
+    >
+      <Stack.Screen name="ExploreStack" component={ExploreStackScreen} />
       <Stack.Screen name="Profile" component={Profile} />
-      <Stack.Screen name="Restaurants" component={Restaurants} />
-      <Stack.Screen name="Restaurant" component={Restaurant} />
+      <Stack.Screen
+        name="RestaurantsStack"
+        component={RestaurantScreenStack}
+        options={{ tabBarLabel: "Restaurants" }}
+      />
     </Stack.Navigator>
   );
 };

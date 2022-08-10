@@ -2,9 +2,9 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { ScrollView, StyleSheet, Text } from "react-native";
 import RestaurantCard from "../atoms/RestaurantCard";
 import Menu from "../molecules/Menu";
-import { DefaultStackParams } from "../navigators/DefaultStack";
+import { ExploreScreenProps } from "../navigators/ExploreStack";
 
-type Props = NativeStackScreenProps<DefaultStackParams, "Explore">;
+type Props = NativeStackScreenProps<ExploreScreenProps, "Explore">;
 
 const Explore = ({ navigation }: Props) => {
   return (
