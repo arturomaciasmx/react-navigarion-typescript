@@ -1,22 +1,71 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { ScrollView, StyleSheet, Text } from "react-native";
 import RestaurantCard from "../atoms/RestaurantCard";
 import Menu from "../molecules/Menu";
+import { DefaultStackParams } from "../navigators/DefaultStack";
 
-const Explore = () => {
+type Props = NativeStackScreenProps<DefaultStackParams, "Explore">;
+
+const Explore = ({ navigation }: Props) => {
   return (
     <ScrollView style={styles.pageContainer}>
       <Text style={styles.pageTitle}>Explore Screen</Text>
-      <RestaurantCard name="Restaurant 1" />
-      <RestaurantCard name="Restaurant 2" />
-      <RestaurantCard name="Restaurant 3" />
+      <RestaurantCard
+        name="Restaurant 1"
+        onPress={(name) => {
+          navigation.navigate("Restaurant", { name });
+        }}
+      />
+      <RestaurantCard
+        name="Restaurant 2"
+        onPress={(name) => {
+          navigation.navigate("Restaurant", { name });
+        }}
+      />
+      <RestaurantCard
+        name="Restaurant 3"
+        onPress={(name) => {
+          navigation.navigate("Restaurant", { name });
+        }}
+      />
       <Text style={styles.pageTitle}>Nearby Restaurants</Text>
-      <RestaurantCard name="Restaurant 1" />
-      <RestaurantCard name="Restaurant 2" />
-      <RestaurantCard name="Restaurant 3" />
+      <RestaurantCard
+        name="Restaurant 1"
+        onPress={(name) => {
+          navigation.navigate("Restaurant", { name });
+        }}
+      />
+      <RestaurantCard
+        name="Restaurant 2"
+        onPress={(name) => {
+          navigation.navigate("Restaurant", { name });
+        }}
+      />
+      <RestaurantCard
+        name="Restaurant 3"
+        onPress={(name) => {
+          navigation.navigate("Restaurant", { name });
+        }}
+      />
       <Text style={styles.pageTitle}>Saved Restaurants</Text>
-      <RestaurantCard name="Restaurant 1" />
-      <RestaurantCard name="Restaurant 2" />
-      <RestaurantCard name="Restaurant 3" />
+      <RestaurantCard
+        name="Restaurant 1"
+        onPress={(name) => {
+          navigation.navigate("Restaurant", { name });
+        }}
+      />
+      <RestaurantCard
+        name="Restaurant 2"
+        onPress={(name) => {
+          navigation.navigate("Restaurant", { name });
+        }}
+      />
+      <RestaurantCard
+        name="Restaurant 3"
+        onPress={(name) => {
+          navigation.navigate("Restaurant", { name });
+        }}
+      />
       <Menu />
     </ScrollView>
   );
